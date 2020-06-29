@@ -1,4 +1,4 @@
-const URL_TO_FETCH = './database.json';
+const URL_TO_FETCH = './src/database.json';
 fetch(URL_TO_FETCH)
     .then(response => { return response.json()})
     .then(data => {
