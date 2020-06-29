@@ -1,4 +1,4 @@
-const URL_TO_FETCH = 'https://diogocezar.github.io/bazar/json/database.json';
+const URL_TO_FETCH = './database.json';
 fetch(URL_TO_FETCH)
     .then(response => { return response.json()})
     .then(data => {
@@ -17,7 +17,8 @@ fetch(URL_TO_FETCH)
 const fillConfigs = function(cfg) {
     var title = `<h1>${cfg.title}</h1>`;
     var subTitle = `<h2>${cfg.subTitle}</h2>`;
-    var email = `<p><a href="mailto:${cfg.email}">${cfg.email}</a></p>`;
+    email = cfg.email;
+    var email = `<p id="email"><a href="mailto:${cfg.email}">${cfg.email}</a></p>`;
     var number = `<p><a href="tell:${cfg.phone}">${cfg.phone}</a></p>`;
     var desc = fillDesc(cfg.description);
     let html = `${title} ${subTitle} ${email} ${number} ${desc}`;
@@ -27,7 +28,6 @@ const fillConfigs = function(cfg) {
 const fillProducts = function (prod) {
     var active = prod.active;
     var name = `<h2>${prod.name}</h2>`;
-
     var image = `<img src="${clearUrl(prod.image)}"/>`;
     var desc = fillDescription(prod.description);
     var price = `<h2 class="price">R$ ${prod.price},00</h2>`;
